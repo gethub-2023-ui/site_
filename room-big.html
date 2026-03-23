@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELF — Большой зал</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <nav class="nav">
+        <a href="index.html" class="nav__link">ГЛАВНАЯ</a>
+        <a href="certificates.html" class="nav__link">СЕРТИФИКАТЫ</a>
+        <a href="index.html" class="nav__logo">SELF</a>
+        <div class="nav__dropdown">
+            <span class="nav__link nav__link--active">АРЕНДА ЗАЛОВ</span>
+            <div class="nav__dropdown-menu">
+                <a href="room-small.html" class="nav__dropdown-item">Малый зал</a>
+                <a href="room-big.html" class="nav__dropdown-item nav__dropdown-item--active">Большой зал</a>
+            </div>
+        </div>
+        <a href="about.html" class="nav__link">О СТУДИИ</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero rooms-hero">
+    <div class="hero__wave">
+        <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+            <path d="M0,0 L0,130 Q200,200 450,130 Q700,60 950,130 Q1150,185 1350,110 L1440,80 L1440,0 Z" fill="#FA99C0"/>
+        </svg>
+    </div>
+    <div class="rooms-hero__inner">
+        <h1 class="rooms-hero__title">БОЛЬШОЙ ЗАЛ</h1>
+        <p class="rooms-hero__desc">В НАШЕЙ СТУДИИ ДОСТУПНА АРЕНДА ЗАЛОВ ДЛЯ ВАШИХ ПРАЗДНИКОВ, МЕРОПРИЯТИЙ, МАСТЕР-КЛАССОВ, ЛЕКЦИЙ ИЛИ КОНТЕНТ-СЪЁМОК.</p>
+    </div>
+</section>
+
+<!-- СТИКЕРЫ + ФОТО -->
+<section class="about">
+    <div class="about__stripe-top"></div>
+    <div class="blob blob--green"></div>
+    <div class="blob blob--yellow"></div>
+    <div class="blob blob--arch"></div>
+
+    <div class="about__inner">
+        <div class="about__notes-area">
+            <div class="note note--orange note--1">
+                <p>Доступное время для аренды — с 10:00 до 23:00. В удобное время можно выбрать подходящую для вас дату и срок.</p>
+            </div>
+            <div class="note note--pink note--2">
+                <p>Для аренды зала достаточно связаться с администратором или заполнить форму на этой странице — мы обязательно свяжемся с вами.</p>
+            </div>
+            <div class="note note--orange note--3">
+                <p>Также аренду зала можно совместить со съёмкой в фотокомнате. Стоимость аренды фотокомнаты — 50–60 мин (40 минут в зависимости от тарифа).</p>
+            </div>
+            <div class="note note--pink note--4">
+                <p>В зале есть мебель, стулья, столы, посуда, которую можно арендовать по прайсу. Вы также можете принести свои декор, еду и напитки.</p>
+            </div>
+        </div>
+
+        <div class="about__photos-col">
+            <div class="about__photo about__photo--top">
+                <div class="placeholder">Фото большого зала</div>
+            </div>
+            <div class="about__photo-row">
+                <div class="about__photo about__photo--bottom">
+                    <div class="placeholder">Фото большого зала</div>
+                </div>
+                <div class="about__bubble">
+                    <span>Вид<br>на большой зал<br>изнутри.</span>
+                    <div class="about__bubble-tail"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФОТО-КАРУСЕЛЬ -->
+<section class="carousel">
+    <div class="carousel__track">
+        <div class="carousel__item"><div class="placeholder">Фото</div></div>
+        <div class="carousel__item"><div class="placeholder">Фото</div></div>
+        <div class="carousel__item"><div class="placeholder">Фото</div></div>
+        <div class="carousel__item"><div class="placeholder">Фото</div></div>
+        <div class="carousel__item"><div class="placeholder">Фото</div></div>
+        <div class="carousel__item"><div class="placeholder">Фото</div></div>
+    </div>
+    <button class="carousel__arrow" onclick="document.querySelector('.carousel__track').scrollBy({left:300,behavior:'smooth'})" aria-label="Листать">›</button>
+</section>
+
+<!-- ТАРИФЫ АРЕНДЫ БОЛЬШОГО ЗАЛА -->
+<section class="tariffs">
+    <div class="tariffs__heading-wrap">
+        <h2 class="tariffs__heading">ТАРИФЫ АРЕНДЫ БОЛЬШОГО ЗАЛА</h2>
+    </div>
+
+    <div class="tariffs__table-wrap">
+        <div class="tariffs__columns">
+            <div class="tariffs__col">
+                <h3 class="tariffs__col-title">Будние дни, с 10:00 до 17:00</h3>
+                <div class="tariffs__row"><span>1 час</span><span class="tariffs__dots"></span><span>2000 руб.</span></div>
+                <div class="tariffs__row"><span>2 часа</span><span class="tariffs__dots"></span><span>4000 руб.</span></div>
+                <div class="tariffs__row"><span>3 часа</span><span class="tariffs__dots"></span><span>6000 руб.</span></div>
+            </div>
+            <div class="tariffs__col">
+                <h3 class="tariffs__col-title">Будние дни, с 17:00 до 23:00<br>и выходные дни</h3>
+                <div class="tariffs__row"><span>1 час</span><span class="tariffs__dots"></span><span>3000 руб.</span></div>
+                <div class="tariffs__row"><span>2 часа</span><span class="tariffs__dots"></span><span>5500 руб.</span></div>
+                <div class="tariffs__row"><span>3 часа</span><span class="tariffs__dots"></span><span>7500 руб.</span></div>
+            </div>
+        </div>
+        <p class="tariffs__note">Доплата за позднее время (20:00–23:00) <span class="tariffs__dots-inline"></span> 300 руб./ч.</p>
+    </div>
+
+    <!-- АРЕНДА ФОТОКОМНАТЫ СОВМЕСТНО С БОЛЬШИМ ЗАЛОМ -->
+    <div class="tariffs__extra">
+        <h3 class="tariffs__extra-title">АРЕНДА ФОТОКОМНАТЫ  СОВМЕСТНО С АРЕНДОЙ БОЛЬШОГО ЗАЛА*</h3>
+        <div class="tariffs__table-wrap">
+            <div class="tariffs__columns">
+                <div class="tariffs__col">
+                    <h3 class="tariffs__col-title">Будние дни, с 10:00 до 17:00</h3>
+                    <div class="tariffs__row"><span>25 минут</span><span class="tariffs__dots"></span><span>2000 руб.</span></div>
+                    <div class="tariffs__row"><span>40 минут</span><span class="tariffs__dots"></span><span>3500 руб.</span></div>
+                    <div class="tariffs__row"><span>90 минут</span><span class="tariffs__dots"></span><span>4500 руб.</span></div>
+                </div>
+                <div class="tariffs__col">
+                    <h3 class="tariffs__col-title">Будние дни, с 17:00 до 23:00<br>и выходные дни</h3>
+                    <div class="tariffs__row"><span>25 минут</span><span class="tariffs__dots"></span><span>2000 руб.</span></div>
+                    <div class="tariffs__row"><span>40 минут</span><span class="tariffs__dots"></span><span>3700 руб.</span></div>
+                    <div class="tariffs__row"><span>90 минут</span><span class="tariffs__dots"></span><span>5500 руб.</span></div>
+                </div>
+            </div>
+            <p class="tariffs__note">Доплата за количество участников съёмки (если человек более, чем 5) <span class="tariffs__dots-inline"></span> 300 руб./чел.</p>
+        </div>
+    </div>
+
+    <p class="tariffs__footnote">*Время аренды зала и фотокомнаты суммируется. Пример: вы хотите приобрести большой зал на 2 часа в будние с 10:00 и затем провести фотосъёмку на 40 минут. Итоговая аренда составит: 2 часа 40 минут, с 10:00 до 12:40. В это время вы можете использовать как 40 минут в фотокомнате, так и любой другой формат.</p>
+
+    <!-- АРЕНДА ПОСУДЫ -->
+    <div class="tariffs__dishes">
+        <h3 class="tariffs__dishes-title">Вы также можете арендовать посуду по следующему расценкам:</h3>
+        <div class="tariffs__dishes-list">
+            <div class="tariffs__row"><span>Фужеры-креманки</span><span class="tariffs__dots"></span><span>100 руб./шт.</span></div>
+            <div class="tariffs__row"><span>Тарелка (d 30–35 см)</span><span class="tariffs__dots"></span><span>100 руб./шт.</span></div>
+            <div class="tariffs__row"><span>Тарелка (d 15 см)</span><span class="tariffs__dots"></span><span>50 руб./шт.</span></div>
+            <div class="tariffs__row"><span>Стаканы</span><span class="tariffs__dots"></span><span>50 руб./шт.</span></div>
+            <div class="tariffs__row"><span>Чайный набор (чашка+блюдце)</span><span class="tariffs__dots"></span><span>200 руб./шт.</span></div>
+            <div class="tariffs__row"><span>Графин</span><span class="tariffs__dots"></span><span>200 руб./шт.</span></div>
+            <div class="tariffs__row"><span>Комплект столовых приборов (ложка десертная и столовая, вилка и нож)</span><span class="tariffs__dots"></span><span>50 руб./шт.</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- КОНТАКТ-ФОРМА -->
+<section class="contact">
+    <div class="contact__left">
+        <p class="contact__logo">SELF</p>
+        <p class="contact__sub">ФОТОСТУДИЯ АВТОПОРТРЕТА</p>
+        <a href="#" class="contact__link">ДОГОВОР ОБ АРЕНДЕ ЗАЛА</a>
+    </div>
+    <div class="contact__right">
+        <p class="contact__intro">Если вы хотите арендовать у нас зал под своё мероприятие, то вы можете оставить заявку в форме ниже. В течение суток наш администратор с вами обязательно свяжется :)</p>
+        <label class="contact__label">ВАШ НОМЕР ТЕЛЕФОНА</label>
+        <input type="tel" class="contact__input" placeholder="+7 (___) ___-__-__">
+        <label class="contact__label">УКАЖИ ИМЕНА И ФАМИЛИЮ</label>
+        <input type="text" class="contact__input" placeholder="Имя Фамилия">
+        <button class="contact__btn">ОТПРАВИТЬ</button>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer__top">
+        <span>Study project</span>
+        <span>Icons by Icons8</span>
+        <span>Not for commercial use!</span>
+    </div>
+    <div class="footer__socials">
+        <a href="#" class="soc"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.17-1.99.04-2.85.18-.78 1.2-5.08 1.2-5.08s-.31-.61-.31-1.52c0-1.42.82-2.49 1.85-2.49.87 0 1.29.66 1.29 1.44 0 .88-.56 2.19-.85 3.41-.24 1.02.51 1.85 1.52 1.85 1.82 0 3.22-1.92 3.22-4.69 0-2.45-1.76-4.17-4.28-4.17-2.91 0-4.62 2.18-4.62 4.44 0 .88.34 1.82.76 2.33.08.1.09.19.07.29-.08.32-.25 1.02-.29 1.16-.05.19-.15.23-.35.14-1.31-.61-2.13-2.53-2.13-4.07 0-3.31 2.41-6.36 6.94-6.36 3.65 0 6.48 2.6 6.48 6.07 0 3.62-2.28 6.54-5.46 6.54-1.07 0-2.07-.55-2.41-1.21l-.66 2.5c-.24.91-.88 2.06-1.31 2.75.99.31 2.03.47 3.12.47 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+        <a href="#" class="soc"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.66 7.84c-.12.56-.44.7-.9.43l-2.5-1.84-1.2 1.16c-.14.14-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.9 13.42l-2.42-.76c-.52-.16-.53-.52.12-.78l9.46-3.64c.44-.16.82.1.68.76z"/></svg></a>
+        <a href="#" class="soc"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.01 13.04h-1.43c-.54 0-.71-.43-1.68-1.42-.85-.82-1.22-.93-1.43-.93-.29 0-.38.08-.38.49v1.3c0 .35-.11.56-1.03.56-1.52 0-3.21-.92-4.4-2.64C5.24 10.58 4.9 9.08 4.9 8.68c0-.21.08-.4.49-.4h1.43c.37 0 .51.17.65.56.72 2.08 1.92 3.9 2.41 3.9.19 0 .27-.08.27-.55v-2.15c-.06-.94-.55-1.02-.55-1.36 0-.17.14-.34.37-.34h2.25c.31 0 .42.17.42.53v2.9c0 .31.14.42.23.42.19 0 .34-.11.68-.46 1.06-1.18 1.81-3.01 1.81-3.01.1-.21.27-.4.64-.4h1.43c.43 0 .52.22.43.53-.18.82-1.89 3.24-1.89 3.24-.15.24-.21.35 0 .63.14.2.63.63.95 1.01.6.69 1.05 1.27 1.17 1.67.13.4-.08.6-.49.6z"/></svg></a>
+        <a href="#" class="soc"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm.03 3c2.94 0 5.33 2.27 5.34 5.06 0 2.79-2.39 5.06-5.34 5.06-.89 0-1.73-.22-2.48-.62L7 16l1.55-2.42A4.93 4.93 0 017.69 10.06C7.7 7.27 10.09 5 13.03 5zm-2.7 3.07c-.14 0-.36.05-.55.26-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.39 2.13 3.39 2.99.47.2.84.33 1.13.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.17-.46.17-.86.12-.94-.05-.09-.18-.14-.38-.24s-1.17-.58-1.35-.64c-.18-.07-.31-.1-.45.1-.13.2-.52.64-.63.78-.12.13-.24.15-.44.05s-.85-.31-1.63-.99c-.6-.53-1.01-1.19-1.13-1.39-.12-.2-.01-.3.09-.4.09-.09.2-.24.3-.36.1-.12.13-.2.2-.34.07-.13.04-.25-.02-.35-.05-.1-.44-1.06-.6-1.46-.16-.38-.32-.33-.44-.34h-.38c-.13 0-.35.05-.53.25z"/></svg></a>
+    </div>
+</footer>
+
+</body>
+</html>
