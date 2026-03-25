@@ -144,6 +144,8 @@ a {
 .header {
     background: var(--yellow);      /* Цвет фона — жёлтый #FFD96C */
     padding: 18px 60px;             /* Отступы: 18px сверху/снизу, 60px по бокам */
+    position: relative;             /* Для z-index */
+    z-index: 100;                   /* Навигация поверх контента — dropdown наплывает вниз */
 }
 
 /* Сама навигация — элементы в ряд по центру */
@@ -154,39 +156,75 @@ a {
     gap: 36px;                      /* Расстояние между пунктами меню — 36px */
 }
 
-/* Обычные ссылки навигации (СЕРТИФИКАТЫ, АРЕНДА ЗАЛОВ, О СТУДИИ) */
+/* ================================================================
+   НАВИГАЦИЯ — ССЫЛКИ
+   Обычные ссылки — оранжевый текст.
+   Активная страница — жирное розовое кольцо #E93D84 + тонкое чёрное подчёркивание.
+   При наведении на неактивную — текст становится чёрным (без подчёркивания).
+
+   Чтобы изменить цвет кольца — меняй border у .nav__link--active
+   Чтобы изменить толщину кольца — меняй border-width у .nav__link--active
+   Чтобы изменить подчёркивание — меняй border-bottom у .nav__link--active
+   ================================================================ */
+
+/* Обычные ссылки навигации */
 .nav__link {
-    font-family: var(--f-sans);     /* Шрифт Inter */
-    font-size: 20px;                /* Размер текста — 20px */
-    font-weight: 400;               /* Обычная толщина (Regular) */
-    text-transform: uppercase;      /* ВСЕ БУКВЫ ЗАГЛАВНЫЕ */
-    color: var(--orange);           /* Цвет текста — оранжевый #EB6333 */
-    transition: opacity 0.2s;       /* Плавное изменение прозрачности при наведении */
+    font-family: var(--f-sans);
+    font-size: 20px;
+    font-weight: 400;               /* НЕ жирный */
+    text-transform: uppercase;
+    color: var(--orange);           /* Оранжевый текст */
+    transition: color 0.2s;
+    border-bottom: none;            /* Нет подчёркивания у обычных ссылок */
 }
 
-/* Активная ссылка (текущая страница) — ГЛАВНАЯ в овале */
-.nav__link--active {
-    border: 3px solid var(--black); /* Чёрная рамка толщиной 3px */
-    border-radius: 30px;            /* Закругление — делает овал */
-    padding: 8px 28px;              /* Внутренние отступы: 8px верх/низ, 28px бока */
-    background: var(--beige);       /* Фон — бежевый (не белый!) */
-    color: var(--black);            /* Цвет текста — чёрный (в отличие от остальных оранжевых) */
-    font-weight: 600;               /* Полужирный текст */
-}
-
-/* Эффект при наведении на ссылку */
+/* При наведении на обычную ссылку — текст чёрный, БЕЗ подчёркивания */
 .nav__link:hover {
-    opacity: 0.7;                   /* Делаем полупрозрачным */
+    color: var(--black);
+    opacity: 1;
+}
+
+/* Активная ссылка (текущая страница) — жирное розовое кольцо + подчёркивание */
+/* Цвет кольца: #E93D84 — меняй тут если нужен другой */
+/* Толщина кольца: 4px — меняй тут */
+/* Подчёркивание текста: чёрная линия внутри кольца */
+.nav__link--active {
+    border: 4px solid #E93D84;      /* Жирное розовое кольцо */
+    border-radius: 30px;
+    /*
+       СКРУГЛЕНИЕ КОЛЬЦА — настройка симметрии:
+       padding: ВЕРХ БОКА НИЗ
+       Сейчас: 8px сверху, 26px по бокам, 10px снизу
+       Если кольцо несимметричное — меняй эти значения тут:
+    */
+    padding: 8px 26px 10px;         /* Сверху 8px | Бока 26px | Снизу 10px */
+    background: var(--yellow);      /* Фон = жёлтый (как шапка навигации) */
+    color: var(--black);
+    font-weight: 400;               /* НЕ жирный */
+    text-decoration: underline;     /* Подчёркивание текста внутри кольца */
+    text-decoration-color: var(--black); /* Цвет подчёркивания — чёрный */
+    text-underline-offset: 4px;     /* Отступ линии от текста — меняй тут */
+    text-decoration-thickness: 2px; /* Толщина линии — меняй тут */
+}
+
+/* Активная ссылка при наведении — ничего не меняется */
+.nav__link--active:hover {
+    color: var(--black);
 }
 
 /* Логотип SELF по центру навигации */
 .nav__logo {
-    font-family: var(--f-sans);     /* Шрифт Inter */
-    font-size: 52px;                /* Размер — 52px (крупный) */
-    font-weight: 700;               /* Жирный (Bold) */
-    color: var(--btn-to);           /* Цвет — розово-фиолетовый #E93DB4 */
-    letter-spacing: 5px;            /* Расстояние между буквами */
+    display: flex;
+    align-items: center;
     margin: 0 20px;                 /* Отступы слева/справа от логотипа */
+}
+
+/* Картинка логотипа — размер 270×100, прозрачный фон */
+/* Чтобы изменить размер логотипа — меняй width и height тут */
+.nav__logo-img {
+    width: 270px;                   /* Ширина логотипа */
+    height: 100px;                  /* Высота логотипа */
+    object-fit: contain;            /* Сохраняет пропорции */
 }
 
 
@@ -716,8 +754,7 @@ a {
     margin-bottom: 20px;
     font-family: var(--f-serif);
     font-size: 14px;
-    color: var(--white);            /* Белый текст */
-    opacity: 0.6;                   /* Полупрозрачный — 60% */
+    color: var(--black);            /* Чёрный текст */
 }
 
 /* Контейнер иконок соцсетей */
@@ -727,18 +764,30 @@ a {
     gap: 18px;                      /* Расстояние между иконками */
 }
 
-/* Одна иконка соцсети — жёлтый кружок */
+/* ================================================================
+   ИКОНКИ СОЦСЕТЕЙ В ФУТЕРЕ
+   Иконки — PNG-картинки с жёлтым кольцом и оранжевым кругом.
+   Чтобы изменить размер — меняй width/height у .soc и .soc__icon
+   ================================================================ */
+
+/* Контейнер одной иконки */
 .soc {
-    width: 56px;                    /* Размер кружка */
+    width: 56px;                    /* Размер контейнера — меняй тут */
     height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--yellow);      /* Жёлтый фон #FFD96C */
-    border-radius: 50%;             /* Круг */
-    color: var(--orange);           /* Цвет иконки — оранжевый */
+    background: none;               /* Фон не нужен — он в самой картинке */
+    border: none;                   /* Обводка не нужна — она в картинке */
+    border-radius: 50%;
     transition: transform 0.3s;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+/* Картинка иконки внутри контейнера */
+.soc__icon {
+    width: 56px;                    /* Размер картинки — меняй тут */
+    height: 56px;
+    object-fit: contain;            /* Сохраняет пропорции */
 }
 
 /* Иконка при наведении */
@@ -1122,54 +1171,120 @@ a {
 
 /* ================================================================
    БЛОК: ВЫПАДАЮЩЕЕ МЕНЮ В НАВИГАЦИИ
-   Dropdown для выбора "Малый зал" / "Большой зал"
+   «АРЕНДА ЗАЛОВ» + подпункты раскрываются ВНИЗ за навигацию.
+   Навигация НЕ сдвигается при наведении.
+   Кольцо ровное, такого же размера как у других ссылок.
    ================================================================ */
+
+/* Контейнер dropdown */
 .nav__dropdown {
     position: relative;
+    z-index: 50;
 }
 
-.nav__dropdown-menu {
+/* Триггер — всегда одинаковый размер, чтобы навигация не прыгала */
+.nav__dropdown-trigger {
+    position: relative;
+    text-align: center;
+    border: 4px solid transparent;
+    border-radius: 20px;
+    padding: 8px 26px 10px;         /* Совпадает с .nav__link--active */
+}
+
+/* Подпункты — абсолютно позиционированы ВНИЗ */
+.nav__dropdown-subitems {
     display: none;
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--yellow);
-    border: 2px solid var(--orange);
-    border-radius: 14px;
-    padding: 8px 0;
-    min-width: 180px;
-    z-index: 100;
-    margin-top: 6px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    left: -4px;
+    right: -4px;
+    background: var(--beige);       /* Бежевый фон dropdown */
+    border: 4px solid #E93D84;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    padding: 4px 8px 8px;
+    z-index: 52;
 }
 
-.nav__dropdown:hover .nav__dropdown-menu {
+/* При наведении — показать подпункты */
+.nav__dropdown-trigger:hover .nav__dropdown-subitems {
     display: block;
 }
 
+/* При наведении — убрать нижнее скругление у кольца */
+.nav__dropdown-trigger:hover {
+    border-radius: 30px 30px 0 0 !important;
+}
+
+/* Заголовок АРЕНДА ЗАЛОВ */
+.nav__dropdown-title {
+    font-family: var(--f-sans);
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: underline;
+    text-decoration-color: var(--black);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+}
+
+/* === Активная страница (залы) — розовое кольцо + БЕЖЕВЫЙ фон === */
+/* Перебивает жёлтый фон из .nav__link--active */
+.nav__dropdown-trigger.nav__link--active {
+    border-color: #E93D84;
+    background: var(--beige) !important; /* БЕЖЕВЫЙ фон когда зал выбран — !important перебивает .nav__link--active */
+    z-index: 51;
+}
+
+/* === Неактивные страницы — кольцо появляется при наведении === */
+.nav__dropdown-trigger:not(.nav__link--active):hover {
+    border-color: #E93D84;          /* Кольцо становится видимым */
+    background: var(--beige);       /* Бежевый фон */
+    z-index: 51;
+}
+
+.nav__dropdown-trigger:not(.nav__link--active) .nav__link {
+    /* Ссылка внутри триггера — обычный стиль */
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.nav__dropdown-trigger:not(.nav__link--active):hover .nav__link {
+    color: var(--black);
+    text-decoration: underline;
+    text-decoration-color: var(--black);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+}
+
+/* Пункт подменю — БЕЗ подчёркивания */
 .nav__dropdown-item {
     display: block;
-    padding: 8px 20px;
+    padding: 3px 12px;
     font-family: var(--f-sans);
     font-size: 16px;
     font-weight: 400;
-    color: var(--orange);
+    color: var(--black);
     text-align: center;
-    transition: background 0.2s;
+    border-radius: 16px;
+    transition: background 0.2s, color 0.2s;
+    margin: 2px 0;
+    text-decoration: none;
 }
 
 .nav__dropdown-item:hover {
-    background: rgba(235, 99, 51, 0.1);
+    background: #FFD9A4;
+    color: #E93D84;
+    text-decoration: none;
 }
 
 .nav__dropdown-item--active {
-    font-weight: 600;
-    color: var(--black);
-    background: var(--beige);
-    border-radius: 8px;
-    margin: 0 6px;
-    padding: 8px 14px;
+    font-weight: 400;
+    color: #E93D84;
+    background: #FFD9A4;
+    border-radius: 16px;
+    text-decoration: none;
 }
 
 
